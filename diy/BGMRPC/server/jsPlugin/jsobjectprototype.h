@@ -127,11 +127,16 @@ public:
 
 class jsJsObjProto : public jsRPCObjectProto
 {
+    Q_PROPERTY(QString __NAME__ READ objectName)
+    Q_PROPERTY(QString __TYPE__ READ objectType)
     Q_PROPERTY(relProcsMap relProcs READ relProcs)
     Q_PROPERTY(bool globalMutexLock READ globalMutexLock WRITE setGlobalMutexLock)
     Q_OBJECT
 public:
     jsJsObjProto(QObject* parent = 0);
+
+    Q_INVOKABLE QString objectName () const;
+    Q_INVOKABLE QString objectType () const;
 
     Q_INVOKABLE void addProc (const QScriptValue& _proc);
 //    Q_INVOKABLE bool removeProc (qulonglong pID);

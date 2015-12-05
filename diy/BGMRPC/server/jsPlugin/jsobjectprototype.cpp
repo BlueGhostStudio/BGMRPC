@@ -121,6 +121,16 @@ jsJsObjProto::jsJsObjProto(QObject* parent)
 //             SLOT (test(BGMRProcedure*)));
 }
 
+QString jsRPCObjectProto::objectName() const
+{
+    return thisRPCObj ()->objectName ();
+}
+
+QString jsRPCObjectProto::objectType() const
+{
+    return thisRPCObj ()->objectType ();
+}
+
 void jsJsObjProto::addProc(/*BGMRProcedure**/const QScriptValue& _proc)
 {
     BGMRProcedure* proc = engine ()->fromScriptValue < BGMRProcedure* > (_proc);
