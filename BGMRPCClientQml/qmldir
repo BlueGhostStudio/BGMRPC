@@ -1,2 +1,2 @@
 module BGStudio.BGMRPC
-BGMRPC 1.0 BGMRPC.qml
+plugin BGMRPCClientQml
