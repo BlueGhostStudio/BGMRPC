@@ -1,0 +1,2 @@
+module BGStudio.BGMRPC
+plugin BGMRPCClientQml
