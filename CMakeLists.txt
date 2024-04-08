@@ -1,13 +1,22 @@
 cmake_minimum_required(VERSION 3.16)
 
-include(../cmake/VERSION.cmake)
+include(FetchContent)
+FetchContent_Declare(
+  dep_cmake
+  GIT_REPOSITORY https://github.com/BlueGhostStudio/BGStudio-cmake.git
+  GIT_TAG main
+  # URL_HASH MD5=c97d6ad774fab16be63b0ab40f78d945 #optional
+)
+FetchContent_MakeAvailable(dep_cmake)
+
+include(${dep_cmake_SOURCE_DIR}/VERSION.cmake)
 
 project(
   BGMRPCClientQml
   VERSION ${BGMRPC_VERSION}
   LANGUAGES CXX)
 
-include(../cmake/BGSQml.cmake)
+include(${dep_cmake_SOURCE_DIR}/BGSQml.cmake)
 
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -51,3 +60,13 @@ target_link_libraries(BGMRPCClientQml PRIVATE Qt6::Quick Qt6::WebSockets)
 
 target_include_directories(BGMRPCClientQml PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 
+if(ANDROID)
+  FetchContent_Declare(
+    android_openssl
+    DOWNLOAD_EXTRACT_TIMESTAMP true
+    URL https://github.com/KDAB/android_openssl/archive/refs/heads/master.zip
+    # URL_HASH MD5=c97d6ad774fab16be63b0ab40f78d945 #optional
+  )
+  FetchContent_MakeAvailable(android_openssl)
+  include(${android_openssl_SOURCE_DIR}/android_openssl.cmake)
+endif()
