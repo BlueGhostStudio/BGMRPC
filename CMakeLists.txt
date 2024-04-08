@@ -21,7 +21,7 @@ add_subdirectory(BGMRPCCtrl)
 if(QT_VERSION_MAJOR EQUAL 6)
   add_subdirectory(BGMRPCd)
   add_subdirectory(BGMRPCClient)
-  add_subdirectory(BGMRPCClientQml)
+  # add_subdirectory(BGMRPCClientQml)
 endif()
 
 add_subdirectory(interfaces)
