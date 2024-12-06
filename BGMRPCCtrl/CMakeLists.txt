@@ -1,10 +1,10 @@
 cmake_minimum_required(VERSION 3.18)
 
-include(../cmake/VERSION.cmake)
+include(${dep_cmake_SOURCE_DIR}/VERSION.cmake)
 
 project(BGMRPCCtrl LANGUAGES CXX)
 
-include(../cmake/BGMRPC.cmake)
+include(${dep_cmake_SOURCE_DIR}/BGMRPC.cmake)
 
 add_definitions(-DVERSION="${BGMRPC_VERSION}")
 
@@ -39,6 +39,7 @@ set_target_properties(
              INSTALL_RPATH "${BGMRPC_REMOTE}/${CMAKE_INSTALL_LIBDIR}")
 
 include_directories(${BGMRPCCommon_includeDir})
+message("------${BGMRPCCommon_includeDir}")
 
 target_link_libraries(
   BGMRPCCtrl PRIVATE Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Network

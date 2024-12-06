@@ -1,10 +1,10 @@
 cmake_minimum_required(VERSION 3.18)
 
-include(../cmake/VERSION.cmake)
+include(${dep_cmake_SOURCE_DIR}/VERSION.cmake)
 
 project(BGMRPCObjectLoader LANGUAGES CXX)
 
-include(../cmake/BGMRPC.cmake)
+include(${dep_cmake_SOURCE_DIR}/BGMRPC.cmake)
 
 add_definitions(-DVERSION="${BGMRPC_VERSION}")
 

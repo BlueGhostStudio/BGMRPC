@@ -1,6 +1,14 @@
-cmake_minimum_required(VERSION 3.18)
+cmake_minimum_required(VERSION 3.16)
 
-include(cmake/BGMRPC.cmake)
+include(FetchContent)
+FetchContent_Declare(
+  dep_cmake
+  GIT_REPOSITORY https://github.com/BlueGhostStudio/BGStudio-cmake.git
+  GIT_TAG main)
+FetchContent_MakeAvailable(dep_cmake)
+
+include(${dep_cmake_SOURCE_DIR}/VERSION.cmake)
+include(${dep_cmake_SOURCE_DIR}/BGMRPC.cmake)
 
 project(BGMRPC2 VERSION ${BGMRPC_VERSION})
 

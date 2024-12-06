@@ -3,7 +3,7 @@ project(
   LANGUAGES CXX
   VERSION 1.0.0)
 
-include(../../../../cmake/BGMRPC.cmake)
+include(${dep_cmake_SOURCE_DIR}/BGMRPC.cmake)
 
 find_package(
   QT NAMES Qt6 Qt5
@@ -40,6 +40,7 @@ install(
   LIBRARY DESTINATION ${BGMRPC_REMOTE}/${CMAKE_INSTALL_LIBDIR}
           COMPONENT BGMRPC_remote_interface_JsPlugin2_JsModule_dev
           EXCLUDE_FROM_ALL
-  PUBLIC_HEADER DESTINATION ${BGMRPC_REMOTE}/${CMAKE_INSTALL_INCLUDEDIR}
-                COMPONENT BGMRPC_remote_interface_JsPlugin2_JsModule_dev
-                EXCLUDE_FROM_ALL)
+  PUBLIC_HEADER
+    DESTINATION ${BGMRPC_REMOTE}/${CMAKE_INSTALL_INCLUDEDIR}
+    COMPONENT BGMRPC_remote_interface_JsPlugin2_JsModule_dev
+    EXCLUDE_FROM_ALL)

@@ -4,7 +4,7 @@ project(
   VERSION 1.0.0)
 
 # include(${CMAKE_CURRENT_LIST_DIR})
-include(../../../../cmake/BGMRPC.cmake)
+include(${dep_cmake_SOURCE_DIR}/BGMRPC.cmake)
 
 find_package(
   QT NAMES Qt6 Qt5

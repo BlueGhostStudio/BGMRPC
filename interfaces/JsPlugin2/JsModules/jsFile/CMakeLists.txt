@@ -3,7 +3,7 @@ project(
   LANGUAGES CXX
   VERSION 1.0.0)
 
-include(../../../../cmake/BGMRPC.cmake)
+include(${dep_cmake_SOURCE_DIR}/BGMRPC.cmake)
 
 find_package(
   QT NAMES Qt6 Qt5
@@ -32,4 +32,4 @@ target_link_libraries(jsFile PRIVATE Qt${QT_VERSION_MAJOR}::Core
                                      Qt${QT_VERSION_MAJOR}::Qml JsModuleCommon)
 
 install(TARGETS jsFile LIBRARY DESTINATION ${BGMRPC_REMOTE}/JsModules
-                                    COMPONENT BGMRPC_remote_JsModules)
+                               COMPONENT BGMRPC_remote_JsModules)
